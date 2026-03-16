@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
   const fetchUserData = async (authToken) => {
     try {
       // Option 1: Agar aapke backend mein /me endpoint hai
-      const response = await axios.get('/api/auth/me')
+      const response = await axios.get('https://krishi-mitra-nodebackend.onrender.com/api/auth/me')
       setUser(response.data.user)
       
       /* 
@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('/api/auth/login', { email, password })
+      const response = await axios.post('https://krishi-mitra-nodebackend.onrender.com/api/auth/login', { email, password })
       const { token, user } = response.data
       
       // Save token
@@ -97,7 +97,7 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (name, email, password) => {
     try {
-      const response = await axios.post('/api/auth/signup', { name, email, password })
+      const response = await axios.post('https://krishi-mitra-nodebackend.onrender.com/api/auth/signup', { name, email, password })
       toast.success('Account created! Please login.')
       return { success: true }
     } catch (error) {
